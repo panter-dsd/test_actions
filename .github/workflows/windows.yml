@@ -1,0 +1,36 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: windows-2019
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache conan
+        uses: actions/cache@v2.0.0
+        with:
+          key: conan-build-cache
+          path: | 
+            c:\.conan 
+            $HOME\.conan
+      - name: Build environment
+        shell: cmd
+        run: call .\build.cmd
+      - name: Build gui
+        shell: cmd
+        run: call .\build_gui.cmd
+      - name: Collect artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: SicherSurfenApp
+          path: sicher-surfen-desktop-app\gui\build\SicherSurfenApp-0.1.0-win64.zip
