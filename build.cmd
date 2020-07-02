@@ -1,6 +1,8 @@
 @echo off
 pushd "%~dp0"
 
+dir c:\.conan
+
 powershell Invoke-WebRequest -o C:\TEMP\conan.exe https://dl.bintray.com/conan/installers/conan-win-32_1_26_0.exe 
 C:\TEMP\conan.exe /VERYSILENT /DIR="c:\conan\"
 c:\conan\conan\conan.exe profile new default --detect
