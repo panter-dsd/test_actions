@@ -29,8 +29,3 @@ jobs:
       - name: Build gui
         shell: cmd
         run: call .\build_gui.cmd
-      - name: Collect artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: SicherSurfenApp
-          path: sicher-surfen-desktop-app\gui\build\SicherSurfenApp-0.1.0-win64.zip
