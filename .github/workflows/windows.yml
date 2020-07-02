@@ -22,7 +22,7 @@ jobs:
           key: conan-build-cache
           path: | 
             c:\.conan 
-            $HOME\.conan
+            ${HOME}\.conan
       - name: Build environment
         shell: cmd
         run: call .\build.cmd
