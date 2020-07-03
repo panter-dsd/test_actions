@@ -4,6 +4,8 @@ pushd "%~dp0"
 SET CONAN_USER_HOME=c:\data
 dir c:\data
 
+IF EXIST c:\data\.conan GOTO exit
+
 powershell Invoke-WebRequest -o C:\TEMP\conan.exe https://dl.bintray.com/conan/installers/conan-win-32_1_26_0.exe 
 C:\TEMP\conan.exe /VERYSILENT /DIR="c:\conan\"
 c:\conan\conan\conan.exe profile new default --detect
