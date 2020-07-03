@@ -1,8 +1,8 @@
 @echo off
 pushd "%~dp0"
 
-dir c:\.conan
-dir C:\Users\runneradmin\.conan\
+SET CONAN_USER_HOME=c:\data
+dir c:\data
 
 powershell Invoke-WebRequest -o C:\TEMP\conan.exe https://dl.bintray.com/conan/installers/conan-win-32_1_26_0.exe 
 C:\TEMP\conan.exe /VERYSILENT /DIR="c:\conan\"
