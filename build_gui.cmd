@@ -1,4 +1,3 @@
 @echo on
 
-echo %PWD%
-dir
+dir c:\data
