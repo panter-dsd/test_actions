@@ -20,9 +20,7 @@ jobs:
         uses: actions/cache@v2.0.0
         with:
           key: conan-build-cache
-          path: | 
-            c:\.conan 
-            ${HOME}\.conan
+          path: c:\data
       - name: Build environment
         shell: cmd
         run: call .\build.cmd
